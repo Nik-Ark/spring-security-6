@@ -28,7 +28,9 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
         String key = request.getHeader("key");
         int userId = request.getIntHeader("userId");
 
-        CustomAuthentication customAuthentication = new CustomAuthentication(false, userId, key);
+        CustomAuthentication customAuthentication = new CustomAuthentication(
+                false, userId, key, null
+        );
 
         Authentication authentication = customAuthenticationManager.authenticate(customAuthentication);
 

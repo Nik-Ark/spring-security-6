@@ -30,7 +30,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         System.out.println("User fetched from DB: " + user);
 
         if (user.isPresent()) {
-            return new CustomAuthentication(true, userId, null);
+            return new CustomAuthentication(true, userId, null, user.get());
         } else {
             throw new BadCredentialsException("No Corresponding user found");
         }

@@ -1,5 +1,7 @@
 package com.nikki.security5.custom_auth.config.security.authentication;
 
+import com.nikki.security5.custom_auth.config.security.authorities.SecurityAuthority;
+import com.nikki.security5.custom_auth.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.security.auth.Subject;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Getter
@@ -17,6 +20,8 @@ public class CustomAuthentication implements Authentication {
     private final boolean authentication;
     private final int userId;
     private final String key;
+
+    private final User user;
 
     @Override
     public boolean isAuthenticated() {
@@ -30,7 +35,9 @@ public class CustomAuthentication implements Authentication {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return user.getAuthorities().stream()
+                .map(SecurityAuthority::new)
+                .collect(Collectors.toList());
     }
 
     @Override
