@@ -38,7 +38,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public boolean supports(Class<?> authentication) {
-//        return authentication.isInstance(CustomAuthentication.class);
         return CustomAuthentication.class.equals(authentication);
     }
 }
