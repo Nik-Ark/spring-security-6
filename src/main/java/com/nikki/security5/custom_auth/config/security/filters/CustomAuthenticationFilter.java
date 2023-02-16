@@ -25,8 +25,17 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
             HttpServletRequest request, HttpServletResponse response, FilterChain filterChain
     ) throws ServletException, IOException {
 
-        String key = request.getHeader("key");
-        int userId = request.getIntHeader("userId");
+        String key;
+        int userId;
+
+        try {
+            key = request.getHeader("key");
+            userId = request.getIntHeader("userId");
+        } catch (Exception ex) {
+            System.out.println("Missing authorization credentials. " + ex);
+            response.sendError(403, "Missing authorization credentials");
+            return;
+        }
 
         Authentication authentication = new CustomAuthentication(
                 false, userId, key, null
