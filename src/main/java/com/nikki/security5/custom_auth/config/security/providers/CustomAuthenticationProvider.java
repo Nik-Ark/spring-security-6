@@ -27,9 +27,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
         Optional<User> user = userJpaRepository.getUserByIdAndAccessKey(userId, key);
 
-        System.out.println("User fetched from DB: " + user);
-
         if (user.isPresent()) {
+            System.out.println(user);
             return new CustomAuthentication(true, userId, null, user.get());
         } else {
             throw new BadCredentialsException("No Corresponding user found");

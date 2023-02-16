@@ -3,6 +3,7 @@ package com.nikki.security5.custom_auth.config.security.managers;
 import com.nikki.security5.custom_auth.config.security.providers.CustomAuthenticationProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,6 @@ public class CustomAuthenticationManager implements AuthenticationManager {
             return provider.authenticate(authentication);
         }
 
-        throw new RuntimeException("Authentication failed");
+        throw new BadCredentialsException("Authentication failed");
     }
 }

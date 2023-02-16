@@ -28,11 +28,16 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
         String key = request.getHeader("key");
         int userId = request.getIntHeader("userId");
 
-        CustomAuthentication customAuthentication = new CustomAuthentication(
+        Authentication authentication = new CustomAuthentication(
                 false, userId, key, null
         );
 
-        Authentication authentication = customAuthenticationManager.authenticate(customAuthentication);
+        try {
+            authentication = customAuthenticationManager.authenticate(authentication);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            response.sendError(403, "Bad authorization credentials");
+        }
 
         if (authentication.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(authentication);
