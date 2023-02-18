@@ -21,6 +21,6 @@ public class CustomAuthenticationManager implements AuthenticationManager {
             return provider.authenticate(authentication);
         }
 
-        throw new BadCredentialsException("Authentication failed");
+        throw new BadCredentialsException("No supported provider for authentication: " + authentication.getClass());
     }
 }

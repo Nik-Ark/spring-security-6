@@ -32,8 +32,9 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
             key = request.getHeader("key");
             userId = request.getIntHeader("userId");
         } catch (Exception ex) {
-            System.out.println("Missing authorization credentials. " + ex);
-            response.sendError(403, "Missing authorization credentials");
+            System.out.println("Credentials in Request Header is not provided. " + ex);
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
             return;
         }
 
@@ -45,7 +46,9 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
             authentication = customAuthenticationManager.authenticate(authentication);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            response.sendError(403, "Bad authorization credentials");
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+
+            return;
         }
 
         if (authentication.isAuthenticated()) {
