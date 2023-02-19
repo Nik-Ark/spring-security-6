@@ -25,21 +25,26 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
             HttpServletRequest request, HttpServletResponse response, FilterChain filterChain
     ) throws ServletException, IOException {
 
-        String key;
+        String accessKey = request.getHeader("access-key");
+
+        if (accessKey == null) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         int userId;
 
         try {
-            key = request.getHeader("key");
             userId = request.getIntHeader("userId");
-        } catch (Exception ex) {
-            System.out.println("Credentials in Request Header is not provided. " + ex);
+        } catch (NumberFormatException ex) {
+            System.out.println("userId should be int.");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 
             return;
         }
 
         Authentication authentication = new CustomAuthentication(
-                false, userId, key, null
+                false, userId, accessKey, null
         );
 
         try {
