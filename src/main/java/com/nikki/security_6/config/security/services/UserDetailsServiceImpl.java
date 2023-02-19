@@ -22,9 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         Optional<User> user = userJpaRepository.findUserByUsername(username);
 
-        if (user.isPresent()) {
-            System.out.println("from UserDetailsServiceImpl: " + user);
-        }
+        user.ifPresent(value -> System.out.println("from UserDetailsServiceImpl: " + value));
 
         return user.map(SecurityUser::new)
                 .orElseThrow(() -> new UsernameNotFoundException("Username Not Found" + username));
