@@ -1,10 +1,10 @@
-package com.nikki.security5.custom_auth;
+package com.nikki.security_6;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CustomAuthApplicationTests {
+class Security6ApplicationTests {
 
 	@Test
 	void contextLoads() {

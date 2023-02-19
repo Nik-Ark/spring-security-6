@@ -1,6 +1,6 @@
-package com.nikki.security5.custom_auth.config.security.authorities;
+package com.nikki.security_6.config.security.authorities;
 
-import com.nikki.security5.custom_auth.entities.User;
+import com.nikki.security_6.entities.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

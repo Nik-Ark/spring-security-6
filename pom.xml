@@ -10,11 +10,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.nikki.security5</groupId>
-	<artifactId>custom_auth</artifactId>
+	<groupId>com.nikki</groupId>
+	<artifactId>security_6</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>custom_auth</name>
-	<description>Custom Auth Security 5</description>
+	<name>security_6</name>
+	<description>Practicing with Spring-Security 6</description>
 
 	<properties>
 		<java.version>17</java.version>

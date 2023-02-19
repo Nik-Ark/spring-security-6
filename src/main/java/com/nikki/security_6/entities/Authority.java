@@ -1,4 +1,4 @@
-package com.nikki.security5.custom_auth.entities;
+package com.nikki.security_6.entities;
 
 import lombok.Getter;
 import lombok.Setter;

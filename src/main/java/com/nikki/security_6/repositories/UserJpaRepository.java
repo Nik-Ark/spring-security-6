@@ -1,6 +1,6 @@
-package com.nikki.security5.custom_auth.repositories;
+package com.nikki.security_6.repositories;
 
-import com.nikki.security5.custom_auth.entities.User;
+import com.nikki.security_6.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

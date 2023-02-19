@@ -1,7 +1,7 @@
-package com.nikki.security5.custom_auth.config.security.filters;
+package com.nikki.security_6.config.security.filters;
 
-import com.nikki.security5.custom_auth.config.security.authentication.CustomAuthentication;
-import com.nikki.security5.custom_auth.config.security.managers.CustomAuthenticationManager;
+import com.nikki.security_6.config.security.authentication.CustomAuthentication;
+import com.nikki.security_6.config.security.managers.CustomAuthenticationManager;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

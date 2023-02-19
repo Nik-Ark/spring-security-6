@@ -1,7 +1,7 @@
-package com.nikki.security5.custom_auth.config;
+package com.nikki.security_6.config;
 
-import com.nikki.security5.custom_auth.config.security.filters.CustomAuthenticationFilter;
-import com.nikki.security5.custom_auth.config.security.services.UserDetailsServiceImpl;
+import com.nikki.security_6.config.security.filters.CustomAuthenticationFilter;
+import com.nikki.security_6.config.security.services.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@ public class SecurityConfig {
         return http
                 .httpBasic(Customizer.withDefaults())
                 .addFilterBefore(customAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
+                .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
                 .build();
     }
 

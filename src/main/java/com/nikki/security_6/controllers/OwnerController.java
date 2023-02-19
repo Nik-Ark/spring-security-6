@@ -1,4 +1,4 @@
-package com.nikki.security5.custom_auth.controllers;
+package com.nikki.security_6.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

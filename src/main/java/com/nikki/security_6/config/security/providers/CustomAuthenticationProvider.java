@@ -1,8 +1,8 @@
-package com.nikki.security5.custom_auth.config.security.providers;
+package com.nikki.security_6.config.security.providers;
 
-import com.nikki.security5.custom_auth.config.security.authentication.CustomAuthentication;
-import com.nikki.security5.custom_auth.entities.User;
-import com.nikki.security5.custom_auth.repositories.UserJpaRepository;
+import com.nikki.security_6.config.security.authentication.CustomAuthentication;
+import com.nikki.security_6.entities.User;
+import com.nikki.security_6.repositories.UserJpaRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
