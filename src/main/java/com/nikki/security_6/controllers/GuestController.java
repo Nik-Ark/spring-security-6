@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/owner")
-public class OwnerController {
+@RequestMapping("api/v1/guest")
+public class GuestController {
 
     @GetMapping({"", "/"})
-    public String ownerMainDashboard() {
-        return "Owner Main Dashboard";
+    public String guestMainPage() {
+        return "Guest Main Page";
     }
 
-    @GetMapping({"/dashboard", "/dashboard/"})
-    public String ownerDashboard() {
-        return "Owner Dashboard";
+    @GetMapping({"/welcome", "/welcome/"})
+    public String guestPage() {
+        return "Guest Page";
     }
 }

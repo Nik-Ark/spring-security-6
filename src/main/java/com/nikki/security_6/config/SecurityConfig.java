@@ -24,9 +24,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         return http
-                .httpBasic(Customizer.withDefaults())
                 .addFilterBefore(customAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-                .authorizeHttpRequests(authorizeRequests -> authorizeRequests.anyRequest().authenticated())
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/api/v1/guest/**").permitAll()
+                        .requestMatchers("/api/v1/owner/**").hasAuthority("delete")
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(Customizer.withDefaults())
                 .build();
     }
 
